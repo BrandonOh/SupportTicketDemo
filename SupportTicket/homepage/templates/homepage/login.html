@@ -5,13 +5,11 @@
 <body>
     <h2>Login</h2>
     {% if messages %}
-        <li
-             {% if messages.tags %} 
-                class="{{ message.tag }}"
-            {% endif %}
-        >
-            {{ message }}
-        </li>
+        <ul>
+            {% for message in messages %}
+                <li {% if messages.tags %} class="{{ message.tag }}" {% endif %}> {{ message }} </li>
+            {% endfor %}
+        </ul>
     {% endif %}
     <form method="post">
         <!-- Cross-Site Request Forgery and Custom Form -->

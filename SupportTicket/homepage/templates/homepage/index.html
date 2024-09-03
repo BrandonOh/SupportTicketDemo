@@ -4,7 +4,7 @@
         <title>Home Page</title>
     </head>
     <body>
-        <h1>Welcome to the Home Page!</h1>
+        <h2>Welcome {{ user.username }}!</h2>
         <p>This is the index page of the site.</p>
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
