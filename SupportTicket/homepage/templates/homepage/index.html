@@ -6,5 +6,9 @@
     <body>
         <h1>Welcome to the Home Page!</h1>
         <p>This is the index page of the site.</p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>     
     </body>
 </html>
