@@ -4,6 +4,15 @@
 </head>
 <body>
     <h2>Login</h2>
+    {% if messages %}
+        <li
+             {% if messages.tags %} 
+                class="{{ message.tag }}"
+            {% endif %}
+        >
+            {{ message }}
+        </li>
+    {% endif %}
     <form method="post">
         <!-- Cross-Site Request Forgery and Custom Form -->
         {% csrf_token %}
