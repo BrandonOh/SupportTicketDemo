@@ -13,13 +13,15 @@ def loginUser(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, f'Welcome, {user.username}!')
-                return redirect('index')
+                return redirect('/homepage')
             else:
                 messages.error(request, 'Invalid username or password.')
     else:
-        form = LoginForm()
-    return render(request, 'homepage/login.html', {'form': form})
+        if request.user.is_authenticated:
+            return redirect("/homepage")
+        else:
+            form = LoginForm()
+    return render(request, 'homepage/loginUser.html', {'form': form})
 
 @login_required
 def index(request):
@@ -28,4 +30,4 @@ def index(request):
 @login_required
 def logoutUser(request):
     logout(request)
-    return redirect('/')
+    return redirect('/login')
