@@ -21,11 +21,16 @@ def loginUser(request):
             return redirect("/homepage")
         else:
             form = LoginForm()
-    return render(request, 'homepage/loginUser.html', {'form': form})
+    return render(request, 'homepage/login.html', {'form': form})
 
 @login_required
 def index(request):
     return render(request, 'homepage/index.html')
+
+@login_required
+def credit(request):
+    return render(request, 'homepage/credit.html')
+
 
 @login_required
 def logoutUser(request):

@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
+    <div class="row text-center">
         <h2>Welcome {{ user.username }}!</h2>
         <p>This is the index page of the site.</p>
-        <form method="POST" action="{% url 'logoutUser' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>     
+        
+    </div>
+    <div class="row text-center">
+        <div class="col-4"></div>
+        <div class="col-2 text-end">
+            <img src="{% static 'images/invoice.png' %}" class="img-fluid" alt="...">
+        </div>
+        <div class="col-2 text-start">
+            <p>Your Tickets</p>
+        </div>
+        <div class="col-4"></div>
+    </div>
 {% endblock %}
